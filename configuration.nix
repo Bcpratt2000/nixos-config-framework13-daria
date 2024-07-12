@@ -117,7 +117,7 @@ in {
     users.users.daria = {
       isNormalUser = true;
       description = "Daria Pratt";
-      initialPassord="password";
+      initialPassword="password";
       extraGroups = [ "networkmanager" "wheel" "dialout" "adbusers" "plugdev" "vboxusers"];
       uid = 1001;
     };
