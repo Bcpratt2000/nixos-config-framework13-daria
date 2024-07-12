@@ -124,7 +124,7 @@ in {
     users.users.ben = {
       isNormalUser = true;
       description = "Ben Pratt";
-      initialPassord="password";
+      initialPassword="password";
       extraGroups = [ "networkmanager" "wheel" "dialout" "adbusers" "plugdev" "vboxusers"];
       uid = 1000;
     };
