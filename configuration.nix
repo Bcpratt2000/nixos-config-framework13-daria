@@ -117,14 +117,14 @@ in {
     users.users.daria = {
       isNormalUser = true;
       description = "Daria Pratt";
-      initialPassord="password"
+      initialPassord="password";
       extraGroups = [ "networkmanager" "wheel" "dialout" "adbusers" "plugdev" "vboxusers"];
       uid = 1001;
     };
     users.users.ben = {
       isNormalUser = true;
       description = "Ben Pratt";
-      initialPassord="password"
+      initialPassord="password";
       extraGroups = [ "networkmanager" "wheel" "dialout" "adbusers" "plugdev" "vboxusers"];
       uid = 1000;
     };
