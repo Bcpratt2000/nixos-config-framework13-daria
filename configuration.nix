@@ -121,13 +121,6 @@ in {
       extraGroups = [ "networkmanager" "wheel" "dialout" "adbusers" "plugdev" "vboxusers"];
       uid = 1000;
     };
-    users.users.ben = {
-      isNormalUser = true;
-      description = "Ben Pratt";
-      initialPassword="password";
-      extraGroups = [ "networkmanager" "wheel" "dialout" "adbusers" "plugdev" "vboxusers"];
-      uid = 1001;
-    };
 
     users.groups.users.gid = 100;
 
@@ -140,7 +133,7 @@ in {
     virtualisation.virtualbox.host.enable = true;
     virtualisation.virtualbox.host.enableExtensionPack = true;
 
-    #
+    # enable onedrive https://nixos.wiki/wiki/OneDrive
     services.onedrive.enable = true;
   
     # List packages installed in system profile. To search, run:
