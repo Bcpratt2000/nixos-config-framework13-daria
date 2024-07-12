@@ -119,14 +119,14 @@ in {
       description = "Daria Pratt";
       initialPassword="password";
       extraGroups = [ "networkmanager" "wheel" "dialout" "adbusers" "plugdev" "vboxusers"];
-      uid = 1001;
+      uid = 1000;
     };
     users.users.ben = {
       isNormalUser = true;
       description = "Ben Pratt";
       initialPassword="password";
       extraGroups = [ "networkmanager" "wheel" "dialout" "adbusers" "plugdev" "vboxusers"];
-      uid = 1000;
+      uid = 1001;
     };
 
     users.groups.users.gid = 100;
