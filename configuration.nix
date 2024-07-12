@@ -139,6 +139,9 @@ in {
     #virtualbox	
     virtualisation.virtualbox.host.enable = true;
     virtualisation.virtualbox.host.enableExtensionPack = true;
+
+    #
+    services.onedrive.enable = true;
   
     # List packages installed in system profile. To search, run:
     # $ nix search wget
