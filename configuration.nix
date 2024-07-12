@@ -15,30 +15,29 @@ in {
         ./hardware-configuration.nix
       ];
 
-    # sudo sshfs ben@192.168.1.15:/home/ben /mnt/BENVER/ -o allow_other,follow_symlinks
-    system.fsPackages = [ pkgs.cifs-utils ];
-    fileSystems."/home/ben/BENVER" = {
-        device = "//192.168.54.11/ben";
-        fsType = "cifs";
-        options = let
-          automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,file_mode=0770,dir_mode=0770,gid=100,uid=1000";
+    # system.fsPackages = [ pkgs.cifs-utils ];
+    # fileSystems."/home/ben/BENVER" = {
+    #     device = "//192.168.54.11/ben";
+    #     fsType = "cifs";
+    #     options = let
+    #       automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,file_mode=0770,dir_mode=0770,gid=100,uid=1000";
   
-        in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
-    };
-    fileSystems."/home/ben/BENVER-MEDIA" = {
-        device = "//192.168.54.11/media";
-        fsType = "cifs";
-        options = let
-          automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,file_mode=0770,dir_mode=0770,gid=100,uid=1000";
+    #     in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
+    # };
+    # fileSystems."/home/ben/BENVER-MEDIA" = {
+    #     device = "//192.168.54.11/media";
+    #     fsType = "cifs";
+    #     options = let
+    #       automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,file_mode=0770,dir_mode=0770,gid=100,uid=1000";
   
-        in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
-    };
+    #     in ["${automount_opts},credentials=/etc/nixos/smb-secrets"];
+    # };
   
     # Bootloader.
     boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
   
-    networking.hostName = "Ben-Framework"; # Define your hostname.
+    networking.hostName = "Daria-Framework"; # Define your hostname.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   
     # Configure network proxy if necessary
@@ -115,15 +114,19 @@ in {
     # services.xserver.libinput.enable = true;
   
     # Define a user account. Don't forget to set a password with ‘passwd’.
+    users.users.daria = {
+      isNormalUser = true;
+      description = "Daria Pratt";
+      initialPassord="password"
+      extraGroups = [ "networkmanager" "wheel" "dialout" "adbusers" "plugdev" "vboxusers"];
+      uid = 1001;
+    };
     users.users.ben = {
       isNormalUser = true;
       description = "Ben Pratt";
+      initialPassord="password"
       extraGroups = [ "networkmanager" "wheel" "dialout" "adbusers" "plugdev" "vboxusers"];
       uid = 1000;
-      packages = with pkgs; [
-        firefox
-      #  thunderbird
-      ];
     };
 
     users.groups.users.gid = 100;
@@ -143,66 +146,34 @@ in {
       "electron-27.3.11"
     ];
     environment.systemPackages = with pkgs; [
-      android-tools
-      arduino
       audacity
       btop
-      #davinci-resolve
-      chromium
-      dig
       unstable.discord
       firefox
       git
       glances
-      gnuradio
-      handbrake
       htop
       iperf
       nmap
       keepassxc
       libreoffice
-      logseq
       neovim
       obs-studio
-      #unstable.orca-slicer
-      pipx
-      unstable.platformio
       rdesktop
-      rpi-imager
       screen
-      sdrpp
       signal-desktop
       speedtest-cli
       spotify
       sshfs
       steam
       tailscale
-      teams-for-linux
-      terminator
+      thunderbird
       vim
       vlc
       vulkan-tools
       #vscode
-      unstable.vscode
       wget
       xclip
-      unstable.yt-dlp
-      (python311Full.withPackages (ps: with ps; [
-      	pip
-  	tkinter
-	meshtastic
-        pytap2
-      ]))
-#      (python310Full.withPackages (ps: with ps; [
-#      	pip
-#  	tkinter
-#	meshtastic
-#        pytap2
-#      ]))
-#      (unstable.python312Full.withPackages (ps: with ps; [
-#      	pip
-#	meshtastic
-#      ]))
     ];
   
     # Some programs need SUID wrappers, can be configured further or are
