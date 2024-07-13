@@ -161,7 +161,7 @@ in {
       speedtest-cli
       spotify
       sshfs
-      steam
+      unstable.steam
       tailscale
       thunderbird
       unzip
