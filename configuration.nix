@@ -163,7 +163,7 @@ in {
       sshfs
       steam = {
         enable = true;
-        package = with pkgs; steam.override {extraPkgz = pkgz: [attr];};
+        package = with pkgs; steam.override {extraPkgs = pkgs: [attr];};
       };
       tailscale
       thunderbird
