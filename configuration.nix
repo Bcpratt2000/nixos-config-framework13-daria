@@ -161,7 +161,10 @@ in {
       speedtest-cli
       spotify
       sshfs
-      unstable.steam
+      steam = {
+        enable = true;
+        package = with pkgs; steam.override {extraPkgz = pkgz: [attr];};
+      };
       tailscale
       thunderbird
       unzip
