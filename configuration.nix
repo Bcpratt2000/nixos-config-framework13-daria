@@ -164,6 +164,7 @@ in {
       steam
       tailscale
       thunderbird
+      unzip
       vim
       vlc
       vulkan-tools
