@@ -135,6 +135,12 @@ in {
 
     # enable onedrive https://nixos.wiki/wiki/OneDrive
     services.onedrive.enable = true;
+
+    # steam workaround
+    programs.steam = {
+      enable = true;
+      package = with pkgs; steam.override {extraPkgs = pkgs: [attr];};
+    };
   
     # List packages installed in system profile. To search, run:
     # $ nix search wget
@@ -161,10 +167,7 @@ in {
       speedtest-cli
       spotify
       sshfs
-      steam = {
-        enable = true;
-        package = with pkgs; steam.override {extraPkgs = pkgs: [attr];};
-      };
+      unstable.steam
       tailscale
       thunderbird
       unzip
