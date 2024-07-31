@@ -153,6 +153,7 @@ in {
       unstable.discord
       firefox
       freerdp
+      freerdp
       git
       glances
       htop
